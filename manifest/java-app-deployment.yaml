@@ -18,9 +18,5 @@ spec:
       containers:
       - name: openjdk
         image: image-registry.openshift-image-registry.svc:5000/endo-work/java-app:deploy
-        args:
-          - java
-          - -jar
-          - /executable_app.jar
       serviceAccount: endo
       serviceAccountName: endo
