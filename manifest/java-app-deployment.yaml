@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-docker-deploy
+  namespace: endo-work
+  labels:
+    app: openjdk-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openjdk-app
+  template:
+    metadata:
+      labels:
+        app: openjdk-app
+    spec:
+      containers:
+      - name: openjdk
+        image: image-registry.openshift-image-registry.svc:5000/endo-work/java-app:deploy
+      serviceAccount: endo
+      serviceAccountName: endo
